@@ -1,0 +1,15 @@
+<h1><%= @post.title %></h1>
+
+<h3>Kind: <%= @post.kind %></h3>
+
+<h3>Author: <%= @post.author %></h3>
+
+<h3>Description:</h3>
+
+<p><%= @post.description %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_post_path(@post) %><br></li>
+  <li><%= link_to "Back", posts_path %><br></li>
+  <li><%= button_to 'Destroy',  @post,  method: :delete %><br></li>
+</ul>

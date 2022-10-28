@@ -1,0 +1,12 @@
+<h1>Posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <a href="/posts/<%= post.id %>">
+      <%= post.title %> (<%= post.kind %>) by <%= post.author %>
+      </a>
+    </li><br>
+  <% end %>
+  <%= link_to "New Post", new_post_path %>
+</ul>
