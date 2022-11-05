@@ -1,0 +1,13 @@
+<h1><%= @category.title %></h1>
+
+<h3>Type: <%= @category.type %></h3>
+
+<h3>Description:</h3>
+
+<p><%= @category.description %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_category_path(@category) %><br></li>
+  <li><%= link_to "Back", categories_path %><br></li>
+  <li><%= button_to 'Destroy',  @category,  method: :delete %><br></li>
+</ul>
