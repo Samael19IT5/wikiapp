@@ -10,8 +10,8 @@
   </div>
 
   <div>
-    <%= form.label :type %><br>
-    <%= form.text_field :type %>
+    <%= form.label :category_type %><br>
+    <%= form.select :category_type, Category.category_types.keys %>
   </div>
 
   <div>

@@ -1,12 +1,32 @@
 <h1>Categories</h1>
-
-<ul>
+<table class="table table-striped">
+  <thead class="table-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">Content</th>
+    <th scope="col">Category</th>
+    <th colspan="3">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% index = 1 %>
   <% @categories.each do |category| %>
-    <li>
-      <a href="/categories/<%= category.id %>">
-        <%= category.title %> (<%= category.type %>)
-      </a>
-    </li><br>
+    <tr>
+      <th scope="row">
+        <%= index %></th>
+      <td><%= category.title %></td>
+      <td><%= category.description %></td>
+      <td><%= category.category_type %></td>
+      <td>
+        <%= link_to "Show", category, class: 'btn btn-primary mx-2' %>
+        <%= link_to "Edit", edit_post_path(category), class: 'btn btn-success mx-2' %>
+        <%= link_to "Destroy", category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mx-2' %>
+      </td>
+    </tr>
+    <% index += 1 %>
   <% end %>
-  <%= link_to "New Category", new_category_path %>
-</ul>
+
+  </tbody>
+</table>
+<%= link_to "New Category", new_category_path, class: 'btn btn-dark mx-2' %>
