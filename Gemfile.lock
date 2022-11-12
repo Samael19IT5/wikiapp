@@ -142,6 +142,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.8-x64-mingw-ucrt)
       racc (~> 1.4)
+    pg (1.4.4-x64-mingw-ucrt)
     popper_js (2.11.6)
     public_suffix (5.0.0)
     puma (5.6.5)
@@ -202,7 +203,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.4)
     strscan (3.0.4)
     thor (1.2.1)
     tilt (2.0.11)
@@ -239,11 +239,11 @@ DEPENDENCIES
   importmap-rails (~> 1.1)
   jbuilder
   jquery-rails
+  pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
   selenium-webdriver
   sprockets-rails
-  sqlite3 (~> 1.4)
   tzinfo-data
   web-console
   webdrivers
@@ -252,4 +252,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.23
+   2.3.25
