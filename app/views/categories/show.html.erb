@@ -7,7 +7,8 @@
 <p><%= @category.description %></p>
 
 <ul>
-  <li><%= link_to "Edit", edit_category_path(@category) %><br></li>
-  <li><%= link_to "Back", categories_path %><br></li>
-  <li><%= button_to 'Destroy',  @category,  method: :delete %><br></li>
+  <li><%= link_to "Edit", edit_category_path(@category), class: "text-decoration-none" %><br></li>
+  <li><%= link_to "Back", categories_path, class: "text-decoration-none" %><br></li>
+  <li><%= link_to 'Destroy', @category, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-decoration-none" %>
+    <br></li>
 </ul>

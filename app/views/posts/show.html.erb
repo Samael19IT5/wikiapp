@@ -9,7 +9,8 @@
 <p><%= @post.description %></p>
 
 <ul>
-  <li><%= link_to "Edit", edit_post_path(@post) %><br></li>
-  <li><%= link_to "Back", posts_path %><br></li>
-  <li><%= button_to 'Destroy',  @post,  method: :delete %><br></li>
+  <li><%= link_to "Edit", edit_post_path(@post), class: "text-decoration-none" %><br></li>
+  <li><%= link_to "Back", posts_path, class: "text-decoration-none" %><br></li>
+  <li><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-decoration-none" %>
+    <br></li>
 </ul>

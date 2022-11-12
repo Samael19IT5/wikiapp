@@ -1,25 +1,26 @@
 <%= form_with model: post do |form| %>
   <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.label :title, class: "col-form-label" %><br>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :category %><br>
-    <%= form.select :category_id, Category.all.map { |c| [c.title, c.id] } %>
+    <%= form.label :category, class: "col-form-label" %><br>
+    <%= form.select :category_id, Category.all.map { |c| [c.title, c.id] }, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %><br>
+    <%= form.label :description, class: "col-form-label" %><br>
+    <%= form.text_area :description, class: "form-control" %><br>
   </div>
 
   <div>
-    <%= form.label :author %><br>
-    <%= form.text_field :author %>
+    <%= form.label :author, class: "col-form-label" %><br>
+    <%= form.text_field :author, class: "form-control" %>
   </div>
 
+  <br>
   <div>
-    <%= form.submit %>
+    <%= form.submit :Create, class: "btn btn-dark" %>
   </div>
 <% end %>
