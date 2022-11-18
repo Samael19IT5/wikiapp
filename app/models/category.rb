@@ -5,4 +5,6 @@ class Category < ApplicationRecord
     "Entertainment" => 1,
     "Sports" => 2,
   }
+  validates :title, format: { with: /\w{3,20}/i, message: "Title not invalid!" }
+  validates :description, length: { maximum: 100 }
 end

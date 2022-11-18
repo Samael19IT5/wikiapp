@@ -42,6 +42,10 @@ class PostsController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def search
+    @posts = Post.where("lower(title) LIKE ?", "%" + params[:vls].to_s.downcase + "%")
+  end
+
   private
   def post_params
     params.require(:post).permit(:category_id, :title, :description, :author)

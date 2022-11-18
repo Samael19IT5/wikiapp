@@ -42,6 +42,10 @@ class CategoriesController < ApplicationController
     redirect_to categories_path, status: :see_other
   end
 
+  def search
+    @categories = Category.where("lower(title) LIKE ?", "%" + params[:vls].to_s.downcase + "%")
+  end
+
   private
   def category_params
     params.require(:category).permit(:title, :description, :category_type)
