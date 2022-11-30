@@ -8,7 +8,7 @@ class OrderController < ApplicationController
     details = OrderDetail.where('order_id=' + order.id)
     sum = 0
     details.each { |detail|
-      book = Book.where('id=' + detail.book_id.to_s)
+      book = Book.first('id=' + detail.book_id.to_s)
       sum += book.price * detail.quantity
     }
     sum
