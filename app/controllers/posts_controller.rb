@@ -1,49 +1,39 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
-  end
-
-  def show
-    @post = Post.find(params[:id])
-  end
-
-  def new
-    @post = Post.new
+    posts = Post.all
+    render json: posts
   end
 
   def create
-    @post = Post.new(post_params)
-
-    if @post.save
-      redirect_to root_path
-    else
-      render :new, status: :unprocessable_entity
+    post = Post.create(post_params)
+    if post.persisted?
+      render json: post
     end
   end
 
-  def edit
-    @post = Post.find(params[:id])
+  def show
+    post = Post.find(params[:id])
+    render json: post
   end
 
   def update
-    @post = Post.find(params[:id])
-
-    if @post.update(post_params)
-      redirect_to @post
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    post = Post.find(params[:id])
+    post.update(update_params)
+    render json: post
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-
-    redirect_to root_path, status: :see_other
+    post = Post.find(params[:id])
+    post.destroy
   end
 
   private
+
   def post_params
+    params.require(:post).permit(:category_id, :title, :description, :author)
+  end
+
+  def update_params
     params.require(:post).permit(:category_id, :title, :description, :author)
   end
 end
